@@ -1,4 +1,4 @@
-package com.kyungbae.section02;
+package com.kyungbae.section03;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -6,9 +6,11 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import org.junit.jupiter.api.*;
 
+import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.Date;
 
-public class EntityColumnMappingTest {
+public class EntityEnumMappingTest {
 
 
     private static EntityManagerFactory entityManagerFactory;
@@ -35,19 +37,28 @@ public class EntityColumnMappingTest {
     }
 
     @Test
-    public void 컬럼매핑테스트(){
+    public void enum_테스트(){
+        System.out.println("UserRole.values: " + Arrays.toString(UserRole.values()));
+        System.out.println("valueOf(ADMIN): " + UserRole.valueOf("ADMIN"));
+        System.out.println("UserRole.USER: " + UserRole.USER);
+        System.out.println("UserRole.USER.name(): " + UserRole.USER.name());
+        System.out.println("UserRole.USER.ordinal(): " + UserRole.USER.ordinal());
+    }
+
+    @Test
+    public void enum타입매핑테스트(){
         User user1 = User.builder()
-//                .userNo(1)
                 .userId("user01")
                 .userPwd("1234")
                 .nickname("관리자")
                 .phone("010-2020-1313")
                 .address("경기도 구리시")
                 .email("mail@email.com")
-                .userRole("ADMIN")
-                .enrollDate(new Date())
+                .userRole(UserRole.ADMIN)
+                .enrollDate(LocalDateTime.now())
                 .status("Y")
                 .build();
+
 
         User user2 = User.builder()
                 .userId("user02")
@@ -56,14 +67,13 @@ public class EntityColumnMappingTest {
                 .phone("010-3232-1212")
                 .address("서울시 강동구")
                 .email("mailmail@email.com")
-                .userRole("USER")
-                .enrollDate(new Date())
+                .userRole(UserRole.USER)
+                .enrollDate(LocalDateTime.now())
                 .status("Y")
                 .build();
 
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
-
 
         try {
             entityManager.persist(user1);
@@ -73,6 +83,6 @@ public class EntityColumnMappingTest {
             e.printStackTrace();
             transaction.rollback();
         }
-
     }
+
 }

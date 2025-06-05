@@ -5,9 +5,7 @@
              version="2.0">
 
   <persistence-unit name="jpa_test">
-<!--    <class>com.ino.section01.Test1</class>-->
-<!--    <class>com.ino.section01.Test2</class>-->
-    <class>com.ino.section02.User</class>
+    <class>com.ino.section03.User</class>
     <properties>
       <!-- Database connection settings -->
       <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

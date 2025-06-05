@@ -8,6 +8,9 @@
 <!--    <class>section01.Test1</class>-->
 <!--    <class>section01.Test2</class>-->
 <!--    <class>section01.Test3</class>-->
+<!--    <class>com.johnth.section02.User</class>-->
+
+    <class>com.johnth.section03.User</class>
 
     <properties>
       <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"></property>
@@ -17,7 +20,7 @@
 
       <property name="hibernate.show_sql" value="true"/>
       <property name="hibernate.format_sql" value="true"/>
-      <!-- hibernate가 entity클래스와 매핑되는 테이블을 자동으로 cruv해주는 기능
+      <!-- hibernate가 entity클래스와 매핑되는 테이블을 자동으로 crud해주는 기능
          - create, update, validate
          -->
       <property name="hibernate.hbm2ddl.auto" value="create"/>

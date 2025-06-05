@@ -8,7 +8,7 @@
 <!--    <class>com.sotogito.section01.Test1</class>-->
 <!--    <class>com.sotogito.section01.Test2</class>-->
 <!--    <class>com.sotogito.section01.Test3</class>-->
-    <class>com.sotogito.section02.User</class>
+    <class>com.sotogito.section03.User</class>
 
     <properties>
       <!-- Database connection settings -->

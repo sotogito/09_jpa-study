@@ -28,10 +28,23 @@ import java.util.Date;
 @Table(name = "tbl_user", uniqueConstraints = {
         @UniqueConstraint(columnNames = {"phone", "enroll_date"})
 })
+@TableGenerator(
+        name = "user_seq_table_generator",
+        table = "userno_seq",
+        pkColumnName = "sequence_name",
+        pkColumnValue = "user_seq",
+        valueColumnName = "next_val",
+        initialValue = 0,
+        allocationSize = 1
+)
 
 public class User {
 
     @Id
+    @GeneratedValue(
+            strategy = GenerationType.TABLE,
+            generator = "user_seq_table_generator"
+    )
     @Column(name = "user_no")
     private int userNo;
 

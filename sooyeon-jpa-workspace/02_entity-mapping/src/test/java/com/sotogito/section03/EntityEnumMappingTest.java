@@ -1,4 +1,4 @@
-package com.sotogito.section02;
+package com.sotogito.section03;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -7,12 +7,12 @@ import jakarta.persistence.Persistence;
 import org.junit.jupiter.api.*;
 
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.Arrays;
 
-public class EntityColumMappingTest {
+public class EntityEnumMappingTest {
 
     private static EntityManagerFactory entityManagerFactory;
-    private EntityManager entityManager;
+    private EntityManager em;
 
     @BeforeAll
     static void initEntityManagerFactory() {
@@ -21,12 +21,12 @@ public class EntityColumMappingTest {
 
     @BeforeEach
     void initEntityManager() {
-        entityManager = entityManagerFactory.createEntityManager();
+        em = entityManagerFactory.createEntityManager();
     }
 
     @AfterEach
     void distroyEntityManager() {
-        entityManager.close();
+        em.close();
     }
 
     @AfterAll
@@ -35,7 +35,14 @@ public class EntityColumMappingTest {
     }
 
     @Test
-    void 컬럼_매핑_테스트() {
+    void enum_테스트() {
+        System.out.println("Userrole.values()" + Arrays.toString(UserRole.values()));
+        System.out.println(UserRole.USER);
+        System.out.println(UserRole.ADMIN.ordinal());
+    }
+
+    @Test
+    void enumType_mapping_테스트() {
         User user1 = User.builder()
                 .userId("admin01")
                 .userPwd("1234")
@@ -44,7 +51,7 @@ public class EntityColumMappingTest {
                 .email("admin01@gmail.com")
                 .address("서울")
                 .enrollDate(LocalDateTime.now())
-                .userRole("ADMIN")
+                .userRole(UserRole.USER)
                 .status("Y")
                 .build();
 
@@ -56,20 +63,19 @@ public class EntityColumMappingTest {
                 .email("admin02@gmail.com")
                 .address("부산")
                 .enrollDate(LocalDateTime.now().plusSeconds(1))
-                .userRole("ADMIN")
+                .userRole(UserRole.ADMIN)
                 .status("Y")
                 .build();
 
-        EntityTransaction transaction = entityManager.getTransaction();
+        EntityTransaction transaction = em.getTransaction();
         transaction.begin();
+
         try {
-            entityManager.persist(user1);
-            entityManager.persist(user2);
+            em.persist(user1);
+            em.persist(user2);
             transaction.commit();
-        } catch (Exception e) {
+        }catch (Exception e) {
             transaction.rollback();
-            e.printStackTrace();
         }
     }
-
 }

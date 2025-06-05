@@ -56,10 +56,10 @@ public class EntityManagerCRUDTest {
 
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
-
+//        entityManager.flush(); db에 명시적으로 commit전에 일단 담음 -> commit전이라 rollback가능
         try {
             entityManager.persist(newMenu); ///1차 캐시에 담음
-//        entityManager.flush(); db에 명시적으로 commit전에 일단 담음 -> commit전이라 rollback가능
+
             transaction.commit(); /// db에 담음
         } catch (Exception e) {
             transaction.rollback();

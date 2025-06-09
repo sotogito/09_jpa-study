@@ -14,6 +14,9 @@
         <class>com.podoseee.section03.join.Menu</class>
         <class>com.podoseee.section03.join.Category</class>
 
+        <class>com.podoseee.section04.subquery.Menu</class>
+        <class>com.podoseee.section04.subquery.Category</class>
+
         <properties>
             <!-- Database connection settings -->
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

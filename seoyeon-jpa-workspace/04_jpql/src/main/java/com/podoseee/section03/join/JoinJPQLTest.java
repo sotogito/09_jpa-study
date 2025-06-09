@@ -69,4 +69,29 @@ public class JoinJPQLTest {
             System.out.println(Arrays.toString(row));
         });
     }
+
+    @Test
+    public void 세타_조인_테스트(){
+        // Theta 조인 : 조인 가능한 모든 경우를 조인하는 JPA 방식, 크로스조인(Cross Join)과 동일 개념
+        String jpql = "SELECT FROM menu3 m, category3 c.categoryName FROM menu3 m, category3 c";
+
+        List<Object[]> menuList = entityManager.createQuery(jpql, Object[].class).getResultList();
+
+        menuList.forEach(row -> {
+            System.out.println(Arrays.toString(row));
+        });
+    }
+
+    @Test
+    public void 페치_조인_테스트(){
+
+        String jpql = "SELECT m FROM menu3 m JOIN m.category";
+        List<Menu> menuList = entityManager.createQuery(jpql, Menu.class).getResultList();
+        menuList.forEach(System.out::println);
+
+        // 내부 조인으로 실행시 N + 1 문제 발생
+        // 1. 최초로 내부 조인 SQL문 실행시 Menu 엔티티들의 정보 조회
+        // 2. 각 Menu 엔티티별로 Category 엔티티를 조회하기 위해서 Menu 엔티티 개수만큼 Category 엔티티 조회 SQL문 실행(N번)
+
+    }
 }

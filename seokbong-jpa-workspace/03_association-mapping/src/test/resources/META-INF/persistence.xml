@@ -12,6 +12,9 @@
     <class>com.jjanggu.section02.one_to_many.Menu</class>
     <class>com.jjanggu.section02.one_to_many.Category</class>
 
+    <class>com.jjanggu.section03.bidirection.Category</class>
+    <class>com.jjanggu.section03.bidirection.Menu</class>
+
     <properties>
       <!-- Database connection settings -->
       <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
@@ -22,6 +25,23 @@
       <!-- Echo all executed SQL to console -->
       <property name="hibernate.show_sql" value="true" />
       <property name="hibernate.format_sql" value="true" />
+    </properties>
+  </persistence-unit>
+
+  <persistence-unit name="jpa_practice">
+
+    <properties>
+      <!-- Database connection settings -->
+      <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpadb" />
+      <property name="jakarta.persistence.jdbc.user" value="kangbroo" />
+      <property name="jakarta.persistence.jdbc.password" value="kangbroo" />
+
+      <!-- Echo all executed SQL to console -->
+      <property name="hibernate.show_sql" value="true" />
+      <property name="hibernate.format_sql" value="true" />
+
+      <property name="hibernate.hbm2ddl.auto" value="create"/>
     </properties>
   </persistence-unit>
 

@@ -24,7 +24,10 @@ public class Category { // 1
     @Column(name = "ref_category_code")
     private Integer refCategoryCode;
 
-    @OneToMany
+    @OneToMany(
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.PERSIST
+    )
     @JoinColumn(name = "category_code")
     private List<Menu> menuList;
 }

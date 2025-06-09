@@ -1,4 +1,4 @@
-package com.kyungbae.section01.many_to_one;
+package com.kyungbae.section03.bidrection;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -10,12 +10,11 @@ import lombok.*;
 @ToString
 @Builder
 
-@Entity(name = "menu1")
+@Entity(name = "menu3")
 @Table(name = "tbl_menu")
 public class Menu {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "menu_code")
     private int menuCode;
 
@@ -25,14 +24,8 @@ public class Menu {
     @Column(name = "menu_price")
     private int menuPrice;
 
-//    @Column(name = "category_code")
-//    private int categoryCode;
-    @ManyToOne(
-            fetch = FetchType.EAGER // 즉시로딩 (default)
-//            fetch = FetchType.LAZY // 지연로딩
-            , cascade = CascadeType.PERSIST // 영속성 전이 설정
-    )
-    @JoinColumn(name = "category_code")
+    @ManyToOne
+    @JoinColumn(name="category_code")
     private Category category;
 
     @Column(name = "orderable_status")

@@ -1,10 +1,9 @@
-package com.kyungbae.section01.many_to_one;
+package com.kyungbae.section02.one_to_many;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -13,7 +12,7 @@ import lombok.*;
 @ToString
 @Builder
 
-@Entity(name="category1")
+@Entity(name="category2")
 @Table(name="tbl_category")
 public class Category {
 
@@ -26,5 +25,12 @@ public class Category {
 
     @Column(name = "ref_category_code")
     private Integer refCategoryCode;
+
+    @OneToMany(
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.PERSIST
+    )
+    @JoinColumn(name = "category_code") // default = 지연로딩(FetchType.LAZY)
+    private List<Menu> menuList;
 
 }

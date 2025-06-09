@@ -5,23 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1888d35-ce8b-43db-ab5b-0539f3725095" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/kyungbae/section03/EntityEnumMappingTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/kyungbae/section03/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/kyungbae/section03/UserRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../03_association-mapping/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../03_association-mapping/Association_mapping.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../03_association-mapping/src/test/java/com/kyungbae/section01/many_to_one/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../03_association-mapping/src/test/java/com/kyungbae/section01/many_to_one/ManyToOneAssociationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../03_association-mapping/src/test/java/com/kyungbae/section01/many_to_one/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../03_association-mapping/src/test/resources/META-INF/persistence.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../01_persistence-context/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../01_persistence-context/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5fb6ef4a-296a-4562-9d19-82f0704342c0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5fb6ef4a-296a-4562-9d19-82f0704342c0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/kyungbae/section02/EntityColumnMappingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/kyungbae/section02/EntityColumnMappingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/kyungbae/section02/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/kyungbae/section02/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../03_association-mapping/Association_mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../03_association-mapping/Association_mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../03_association-mapping/src/test/java/com/kyungbae/section01/many_to_one/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/../03_association-mapping/src/test/java/com/kyungbae/section01/many_to_one/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../03_association-mapping/src/test/java/com/kyungbae/section01/many_to_one/ManyToOneAssociationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../03_association-mapping/src/test/java/com/kyungbae/section01/many_to_one/ManyToOneAssociationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../03_association-mapping/src/test/java/com/kyungbae/section01/many_to_one/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../03_association-mapping/src/test/java/com/kyungbae/section01/many_to_one/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../03_association-mapping/src/test/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../03_association-mapping/src/test/resources/META-INF/persistence.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +221,7 @@
       <updated>1749018175297</updated>
       <workItem from="1749018176401" duration="7370000" />
       <workItem from="1749082360519" duration="4490000" />
-      <workItem from="1749087078487" duration="777000" />
+      <workItem from="1749087078487" duration="1639000" />
     </task>
     <servers />
   </component>

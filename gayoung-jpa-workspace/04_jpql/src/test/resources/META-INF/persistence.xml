@@ -11,6 +11,8 @@
         <class>com.younggalee.section02.projection.Category</class>
         <class>com.younggalee.section03.join.Menu</class>
         <class>com.younggalee.section03.join.Category</class>
+        <class>com.younggalee.section04.subquery.Menu</class>
+        <class>com.younggalee.section04.subquery.Category</class>
 
         <properties>
             <!-- Database connection settings -->

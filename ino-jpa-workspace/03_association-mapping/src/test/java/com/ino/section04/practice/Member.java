@@ -35,4 +35,4 @@ public class Member {
     )
     @JoinColumn(name = "lockerId")
     private Locker locker;
-}
+} 

@@ -1,9 +1,10 @@
-package com.younggalee.section02;
+package com.younggalee.section03;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /*
@@ -26,28 +27,13 @@ import java.util.Date;
 @ToString
 
 @Entity
-@Table(
-        name = "tbl_user"
-        ,uniqueConstraints = {@UniqueConstraint(columnNames = {"phone", "enroll_date"})} )
-@TableGenerator(
-        name = "user_seq_table_generator",
-        table="userno_seq",
-        pkColumnName = "sequence_name",
-        pkColumnValue = "user_seq",
-        valueColumnName = "next_val",
-        initialValue = 0,
-        allocationSize = 1
-)
+@Table(name = "tbl_user")
 public class User {
     @Id
-    @GeneratedValue( // 기본키(PK)값을 자동생성해주는 어노테이션
-            //strategy = GenerationType.IDENTITY    // 기본키 생성을 데이터베이스에게 위임 (auto increment)
-            //strategy = GenerationType.AUTO
-            strategy = GenerationType.TABLE, generator = "user_seq_table_generator"
-    )
+    @GeneratedValue( strategy = GenerationType.IDENTITY )
     @Column(name = "user_no")
     private int userNo;
-    @Column(name="user_id", nullable = false) // not null 제약조건
+    @Column(name="user_id", nullable = false)
     private String userId;
     @Column(name = "user_pwd", nullable = false)
     private String userPwd;
@@ -55,19 +41,16 @@ public class User {
     private String nickName;
     @Column(columnDefinition = "varchar(13) default '010-0000-0000'")
     private String phone;
-    @Column(unique = true) // unique 제약조건
+    @Column(unique = true)
     private String email;
     @Column
     private String address;
-
     @Column(name = "enroll_date")
-//    @Temporal(TemporalType.TIMESTAMP) // datetime으로 만들어지게 하는 디폴트 어노테이션
-//    @Temporal(TemporalType.DATE) // date
-//    @Temporal(TemporalType.TIME) // time
-    private Date enrollDate; // LocalDateTime하면 기본값 TIMESTAMP로 됨. LocalDate, LocalTime도 각각 어노테이션 없이도 date, time 타입으로 만들어줌
-
+    private LocalDateTime enrollDate;
     @Column(name = "user_role")
-    private String userRole;
+    @Enumerated(EnumType.ORDINAL) // 이게 default : 값이 아닌 상수선언순서가 기록됨. 따라서 값이 0, 1 이런식임 + 타입: tinyint
+//    @Enumerated(EnumType.STRING) // 상수명으로 기록됨. 타입 : enum / ADMIN, USER 들어감
+    private UserRole userRole; // 미리 정의된 값만 들어올 수 있게
     @Column(length = 1)
     private String status;
 }

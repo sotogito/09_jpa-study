@@ -1,4 +1,4 @@
-package com.jjanggu.section02;
+package com.jjanggu.section03;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -7,9 +7,18 @@ import jakarta.persistence.Persistence;
 import org.junit.jupiter.api.*;
 
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.Arrays;
 
-public class EntityColumnMappingTest {
+public class EntityEnumMappingTest {
+
+    @Test
+public void enum_테스트 (){
+        System.out.println("UserRole.values" + Arrays.toString(UserRole.values()));
+        System.out.println("UserRole.valueOf('Admin)" + UserRole.valueOf("ADMIM"));
+        System.out.println("UserRole.USER" + UserRole.USER);
+        System.out.println("UserRole.USER.name(): " + UserRole.USER.name());
+        System.out.println("UserRole.USER.ordinal(): " + UserRole.USER.ordinal());
+    }
 
     private static EntityManagerFactory entityManagerFactory;
     private EntityManager entityManager;
@@ -27,40 +36,30 @@ public class EntityColumnMappingTest {
     public static void destroyEntityManagerFactory(){ entityManagerFactory.close(); }
 
     @Test
-    public void 컬럼_매핑_테스트(){
-        User user = User.builder()
-                //.userNo(1)
-                .userId("admin01")
+    public void enum타입_매핑_테스트(){
+        User user1 = User.builder()
+                .userId("admin")
                 .userPwd("1234")
                 .nickname("관리자")
-                .phone("010-1234-5678")
-                .email("admin@gmail.com")
-                .address("서울시 강서구")
-                //.enrollDate(new Date())
+                .phone("010-1111-2222")
                 .enrollDate(LocalDateTime.now())
-                .userRole("ADMIN")
-                .status("Y")
+                .userRole(UserRole.ADMIN)
                 .build();
 
         User user2 = User.builder()
-                //.userNo(1)
-                .userId("user01")
-                .userPwd("pass01")
+                .userId("user")
+                .userPwd("pass")
                 .nickname("사용자")
-                .phone("010-9999-1111")
-                .email("user@gmail.com")
-                .address("부산시 강서구")
-                //.enrollDate(new Date())
+                .phone("010-5555-0000")
                 .enrollDate(LocalDateTime.now())
-                .userRole("USER")
-                .status("Y")
+                .userRole(UserRole.USER)
                 .build();
 
         EntityTransaction entityTransaction = entityManager.getTransaction();
         entityTransaction.begin();
 
         try {
-            entityManager.persist(user);
+            entityManager.persist(user1);
             entityManager.persist(user2);
             entityTransaction.commit();
         }catch (Exception e){

@@ -1,4 +1,4 @@
-package com.johnth.section02;
+package com.johnth.section03;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -17,10 +17,7 @@ import java.util.Date;
     7. columnDefinition : 직접 컬럼의 DDL을 지정
     8. length           : 문자열 길이, String 타입에서만 사용 (default:255)
 
-    @GeneratedValue(strategy = GenerationType.TABLE // 기본키 생성을 DB에 위임(mysql 에서 autoincrement)
  */
-
-
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -30,23 +27,10 @@ import java.util.Date;
 @ToString
 
 @Entity
-@Table(
-        name="tbl_user",
-        uniqueConstraints = {@UniqueConstraint(columnNames = {"phone", "enroll_date"})}
-)
-
-@TableGenerator(
-        name="user_seq_table_generator"
-        ,table = "userno_seq"
-        , pkColumnName = "sequence_name"
-        , pkColumnValue = "user_seq"
-        , valueColumnName = "next_val"
-        , initialValue = 0
-        , allocationSize = 1
-)
+@Table(name="tbl_user")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE,generator = "user_seq_table_generator")// 테이블 직정 명시
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="user_no")
     private int userNo;
     @Column(name="user_id", nullable = false)
@@ -63,18 +47,22 @@ public class User {
     private String address;
 
     @Column(name="enroll_date")
-
-    //@Temporal(TemporalType.TIMESTAMP) // datetime, 생략시 기본값
-    //@Temporal(TemporalType.DATE)      // date
-    //@Temporal(TemporalType.TIME)      // time
-    //private Date enrollDate;
-
     private LocalDateTime enrollDate;   // datetime
-    // private LocalDate enrollDate;    // date
-    // private LocalTime enrollDate;    // time
 
     @Column(name="user_role")
-    private String userRole;
+    @Enumerated(EnumType.STRING) //Ordinal : 순서 , String: 이름
+    private UserRole userRole;
     @Column(name="status", length=1)
     private String status;
 }
+
+/*
+    ## @Enumerated ##
+    1. Enum 타입 매핑을 위해 사용
+    2. 종류
+       1) EnumType.ORDINAL : 상수 정의 순서로 매핑함 (0부터 시작), 생략시 기본값
+       2) EnumType.STRING  : 상수명을 문자열로 매핑함
+    3. 종류별 장단점
+       1) EnumType.ORDINAL : 데이터베이스에 저장되는 데이터의 크기가 작음. 단, 이미 저장된 enum의 순서를 변경할 수 없음
+       2) EnumType.STRING  : 데이터베이스에 저장되는 데이터의 크기가 큼.   단, 저장된 enum의 순서가 바뀌거나 새로운 enum이 추가되어도 안전함
+ */

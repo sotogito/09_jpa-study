@@ -3,6 +3,7 @@ package com.johnth.section02;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /*
@@ -15,7 +16,11 @@ import java.util.Date;
     6. unique           : 컬럼의 유일성 제약조건에 해당함 (default:false), 두 개 이상의 컬럼을 묶어 부여하고자 할 경우 클래스 레벨에서 uniqueConstraints 속성을 활용
     7. columnDefinition : 직접 컬럼의 DDL을 지정
     8. length           : 문자열 길이, String 타입에서만 사용 (default:255)
+
+    @GeneratedValue(strategy = GenerationType.TABLE // 기본키 생성을 DB에 위임(mysql 에서 autoincrement)
  */
+
+
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,40 +28,53 @@ import java.util.Date;
 @Setter
 @Builder
 @ToString
+
 @Entity
 @Table(
-        name = "tbl_user"
-        ,uniqueConstraints = {@UniqueConstraint(columnNames = {"phone","enroll_date"})})
+        name="tbl_user",
+        uniqueConstraints = {@UniqueConstraint(columnNames = {"phone", "enroll_date"})}
+)
 
+@TableGenerator(
+        name="user_seq_table_generator"
+        ,table = "userno_seq"
+        , pkColumnName = "sequence_name"
+        , pkColumnValue = "user_seq"
+        , valueColumnName = "next_val"
+        , initialValue = 0
+        , allocationSize = 1
+)
 public class User {
     @Id
-    @Column(name = "user_no")
+    @GeneratedValue(strategy = GenerationType.TABLE,generator = "user_seq_table_generator")// 테이블 직정 명시
+    @Column(name="user_no")
     private int userNo;
-
-    @Column(name = "user_id", nullable = false)
+    @Column(name="user_id", nullable = false)
     private String userId;
-
-    @Column(name = "user_pwd", nullable = false)
+    @Column(name="user_pwd", nullable = false)
     private String userPwd;
-
-    @Column(name = "nickname")
-    private String nickName;
-
-    @Column(name = "phone", columnDefinition = "varchar(13) default '010-0000-0000'")
+    @Column(name="nickname", nullable = false)
+    private String nickname;
+    @Column(name="phone", columnDefinition = "varchar(13) default '010-0000-0000'")
     private String phone;
-
-    @Column(name = "email", unique = true, nullable = false)
+    @Column(name="email", unique = true)
     private String email;
-
-    @Column(name = "address")
+    @Column(name="address")
     private String address;
 
-    @Column(name = "enroll_date")
-    private Date enrolLDate;
+    @Column(name="enroll_date")
 
-    @Column(name = "user_role")
+    //@Temporal(TemporalType.TIMESTAMP) // datetime, 생략시 기본값
+    //@Temporal(TemporalType.DATE)      // date
+    //@Temporal(TemporalType.TIME)      // time
+    //private Date enrollDate;
+
+    private LocalDateTime enrollDate;   // datetime
+    // private LocalDate enrollDate;    // date
+    // private LocalTime enrollDate;    // time
+
+    @Column(name="user_role")
     private String userRole;
-
-    @Column(name = "status", length = 1)
+    @Column(name="status", length=1)
     private String status;
 }

@@ -5,20 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0472b231-08ab-4ee9-b76e-c24299f541cb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../03_association-mapping/src/test/java/com/jjanggu/section03/bidirection/BidirectionAssocationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../03_association-mapping/src/test/java/com/jjanggu/section03/bidirection/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../03_association-mapping/src/test/java/com/jjanggu/section03/bidirection/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JPQL.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/jjanggu/section01/simple/SimpleJPQLTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../03_association-mapping/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../03_association-mapping/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../03_association-mapping/src/test/java/com/jjanggu/section02/one_to_many/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/../03_association-mapping/src/test/java/com/jjanggu/section02/one_to_many/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../03_association-mapping/src/test/java/com/jjanggu/section02/one_to_many/OneToManyAssociationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../03_association-mapping/src/test/java/com/jjanggu/section02/one_to_many/OneToManyAssociationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../03_association-mapping/src/test/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../03_association-mapping/src/test/resources/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../05_native-query/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../05_native-query/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../05_native-query/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../05_native-query/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../05_native-query/src/test/java/com/jjanggu/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../05_native-query/src/test/java/com/jjanggu/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../05_native-query/src/test/java/com/jjanggu/NativeQueryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../05_native-query/src/test/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,9 +36,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2yFRURpb8X2xnQoT5kg5t9cPNU6" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -50,20 +46,20 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/dev/workspaces/09_jpa-study/seokbong-jpa-workspace/04_jpql/src/test/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/dev/workspaces/09_jpa-study/seokbong-jpa-workspace/04_jpql/src/test/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\dev\workspaces\09_jpa-study\seokbong-jpa-workspace\04_jpql\src\test\resources" />
@@ -86,6 +82,7 @@
       <option name="presentableId" value="Default" />
       <updated>1749428352348</updated>
       <workItem from="1749428353073" duration="581000" />
+      <workItem from="1749514332307" duration="1086000" />
     </task>
     <servers />
   </component>

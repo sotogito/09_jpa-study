@@ -25,5 +25,13 @@
   </tr>
   </tbody>
 </table>
+<div>
+  <button th:disabled="${isFirst}" th:onclick="|location.href='@{/menu/list(page=${page-1})}';|">prev</button>
+  <button th:each="p : ${#numbers.sequence(beginPage, endPage)}"
+          th:text="${p}"
+          th:onclick="|location.href='@{/menu/list(page=${p})}';|"
+          th:disabled="${p eq page}"></button>
+  <button th:disabled="${isLast}" th:onclick="|location.href='@{/menu/list(page=${page+1})}';|">next</button>
+</div>
 </body>
 </html>

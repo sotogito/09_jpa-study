@@ -17,7 +17,7 @@ public class MenuDto implements Serializable {
     Integer menuCode;
     String menuName;
     Integer menuPrice;
-//    CategoryDto category;
+    //    CategoryDto category;
     Integer categoryCode; //자동으로 넣어줌
     String orderableStatus;
 

@@ -1,14 +1,21 @@
 package com.sotogito.springdatajpa.menu.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Getter
 
-@Entity(name = "category")
+@Entity
 @Table(name = "tbl_category")
+
 public class Category {
 
     @Id

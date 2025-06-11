@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<form th:action="@{/menu/regist}" method="post">
+  메뉴명: <input type="text" name="menuName"><br>
+  메뉴가격: <input type="number" name="menuPrice"><br>
+  카테고리:
+  <select id="category" name="categoryCode">
+  </select>
+  판매상태:
+  <select name="orderableStatus">
+    <option value="Y">판매가능</option>
+    <option value="N">판매불가</option>
+  </select>
+  <button type="submit">전송</button>
+</form>
+
+<script>
+  fetch('[[@{/menu/categories}]]', {
+    method: 'GET'
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      const $categorySelect = document.getElementById('category');
+
+      data.forEach(category => {
+        const $option = document.createElement('option');
+        $option.textContent = category.categoryName;
+        $option.value = category.categoryCode;
+
+        $categorySelect.appendChild($option);
+      })
+    })
+</script>
+
+</body>
+</html>

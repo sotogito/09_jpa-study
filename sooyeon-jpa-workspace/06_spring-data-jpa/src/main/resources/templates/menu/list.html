@@ -6,8 +6,8 @@
 </head>
 <body>
 
-<table>
-  <thead>
+  <table>
+    <thead>
     <tr>
       <th>메뉴번호</th>
       <th>메뉴이름</th>
@@ -15,8 +15,8 @@
       <th>카테고리코드</th>
       <th>판매상태</th>
     </tr>
-  </thead>
-  <tbody>
+    </thead>
+    <tbody>
     <tr th:each="menu : ${menuList}" th:object="${menu}">
       <td th:text="*{menuCode}"></td>
       <td th:text="*{menuName}"></td>
@@ -24,8 +24,30 @@
       <td th:text="*{categoryCode}"></td>
       <td th:text="*{orderableStatus}"></td>
     </tr>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+
+  <div>
+    <button
+      th:onclick="|location.href='@{/menu/list(page=${page-1})}';|"
+      th:disabled="${isFirst}"
+    >
+      이전
+    </button>
+    <button
+      th:each="p : ${#numbers.sequence(beginPage, endPage)}"
+      th:text="${p}"
+      th:onclick="|location.href='@{/menu/list(page=${p})}';|"
+      th:disabled="${p eq page}"
+    >
+    </button>
+    <button
+      th:onclick="|location.href='@{/menu/list(page=${page+1})}';|"
+      th:disabled="${isLast}"
+    >
+      다음
+    </button>
+  </div>
 
 </body>
 </html>

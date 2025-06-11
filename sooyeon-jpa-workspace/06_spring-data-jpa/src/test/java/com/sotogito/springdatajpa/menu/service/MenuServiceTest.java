@@ -22,9 +22,9 @@ class MenuServiceTest {
     }
 
     @Test
-    void findMenuByName() {
-        List<MenuDto> result = menuService.findMenuList();
-        result.forEach(System.out::println);
+    void findCategoryList() {
+        System.out.println(menuService.findCategoryList());
     }
+
 
 }
